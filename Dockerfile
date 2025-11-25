@@ -1,8 +1,5 @@
-# Step 1: Use an official JDK image to build
-FROM openjdk:17-jdk-slim
-
-# Step 2: Copy the JAR from the target folder into the image
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
 COPY target/*.jar app.jar
-
-# Step 3: Run the application
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
